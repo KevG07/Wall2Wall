@@ -47,6 +47,42 @@ anime.set('.promo-card', { opacity: 0, translateY: 40 });
 anime.set('.footer-container', { opacity: 0, translateY: 30 });
 
 // ============================================
+// Globe Button & Section Animations
+// ============================================
+
+// Globe toggle button hover animation
+const globeToggle = document.getElementById('globeToggle');
+if (globeToggle) {
+    globeToggle.addEventListener('mouseenter', () => {
+        anime({
+            targets: globeToggle,
+            scale: [1, 1.08],
+            duration: 300,
+            easing: 'easeOutQuad'
+        });
+    });
+
+    globeToggle.addEventListener('mouseleave', () => {
+        anime({
+            targets: globeToggle,
+            scale: 1,
+            duration: 300,
+            easing: 'easeOutQuad'
+        });
+    });
+
+    globeToggle.addEventListener('click', () => {
+        // Animate the globe icon
+        anime({
+            targets: globeToggle.querySelector('i'),
+            rotate: [0, 360],
+            duration: 600,
+            easing: 'easeInOutQuad'
+        });
+    });
+}
+
+// ============================================
 // Intersection Observer for Scroll Animations
 // ============================================
 

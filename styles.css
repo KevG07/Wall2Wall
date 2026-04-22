@@ -231,6 +231,134 @@ body {
     box-shadow: 0 4px 16px rgba(26, 40, 71, 0.3);
 }
 
+.btn-globe-toggle {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: 2px solid var(--accent-color);
+    padding: 0.75rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.btn-globe-toggle:hover {
+    background-color: var(--accent-color);
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(6, 179, 201, 0.4);
+}
+
+.btn-globe-toggle i {
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   Globe Section
+   ============================================ */
+.globe-section {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s ease;
+    background: linear-gradient(135deg, #0a1628 0%, #1a2847 100%);
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 12px;
+}
+
+.globe-section.expanded {
+    max-height: 85vh;
+    padding: 2rem 20px;
+    margin-bottom: 2rem;
+}
+
+.globe-container {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background: radial-gradient(ellipse at center, #1a3a4a 0%, #0a1628 100%);
+    border-radius: 8px;
+    box-shadow: inset 0 0 50px rgba(6, 179, 201, 0.1);
+    overflow: hidden;
+}
+
+#globe-svg {
+    background: radial-gradient(ellipse at center, #1a3a4a 0%, #0a1628 100%);
+    display: block;
+}
+
+.globe-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--white);
+    font-size: 1.2rem;
+    text-align: center;
+    z-index: 10;
+}
+
+.globe-loading.hidden {
+    display: none;
+}
+
+/* Globe SVG Elements */
+.globe-land {
+    fill: #2a4a5a;
+    stroke: #1a3a4a;
+    stroke-width: 0.5px;
+}
+
+.globe-land:hover {
+    fill: #3a5a6a;
+}
+
+.globe-graticule {
+    fill: none;
+    stroke: rgba(6, 179, 201, 0.1);
+    stroke-width: 0.5px;
+    pointer-events: none;
+}
+
+.glow-spot {
+    pointer-events: none;
+}
+
+.glow-circle {
+    fill: none;
+    stroke: #06b3c9;
+    stroke-width: 2px;
+    opacity: 0.8;
+}
+
+.glow-point {
+    fill: #06b3c9;
+    filter: drop-shadow(0 0 8px #06b3c9) drop-shadow(0 0 4px #06b3c9);
+}
+
+@keyframes glow-pulse {
+    0% {
+        r: 3px;
+        opacity: 1;
+        filter: drop-shadow(0 0 8px #06b3c9) drop-shadow(0 0 4px #06b3c9);
+    }
+    50% {
+        r: 5px;
+        opacity: 0.7;
+        filter: drop-shadow(0 0 12px #06b3c9) drop-shadow(0 0 8px #06b3c9);
+    }
+    100% {
+        r: 3px;
+        opacity: 1;
+        filter: drop-shadow(0 0 8px #06b3c9) drop-shadow(0 0 4px #06b3c9);
+    }
+}
+
+.glow-point.pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+}
+
 /* ============================================
    Sections - General
    ============================================ */

@@ -6,6 +6,10 @@
     <title>Wall2Wall - Premium Apparel & Lifestyle</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- D3.js for map projections -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- TopoJSON for geographic data -->
+    <script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
 </head>
 <body>
     <!-- Header Section -->
@@ -66,6 +70,20 @@
             <div class="hero-content">
                 <h1 class="hero-title">Join the Us</h1>
                 <button class="btn btn-primary" id="heroBtn">Check it out</button>
+            </div>
+            <button class="btn btn-globe-toggle" id="globeToggle">
+                <i class="fas fa-globe"></i>
+                Explore Global Reach
+            </button>
+        </section>
+
+        <!-- Globe Section (Hidden by default) -->
+        <section class="globe-section" id="globeSection">
+            <div class="globe-container">
+                <svg id="globe-svg" width="100%" height="100%"></svg>
+                <div class="globe-loading" id="globeLoading">
+                    <p>Loading world map...</p>
+                </div>
             </div>
         </section>
 
@@ -236,6 +254,7 @@
 
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script src="globe.js"></script>
     <script src="animations.js"></script>
 </body>
 </html>
